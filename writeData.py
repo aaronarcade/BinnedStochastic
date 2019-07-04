@@ -1,8 +1,8 @@
+# 04072019 - Aaron Brown
 import csv, pprint, random
 
 def writeData():
     numPoints = 100
-    #intervals = [(),(),()]    #[(deltat, yval)]
     points = []   #(xval, yval)
     x = 0
 
