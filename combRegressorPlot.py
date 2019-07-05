@@ -39,6 +39,8 @@ def combRegress():
             if i not in bins:
                 bins.append(i)
 
+
+        #****features will be found here****
         breaks = [] # [(start, stop, yval)]
         ys = y_1.tolist()
         start = 0
@@ -52,6 +54,8 @@ def combRegress():
 
         lis.append((X, y))
         tes.append((X_test, y_1))
+
+        #****this is the feature string****
         combBreaks.append(breaks)
 
     #---------------------------------------------------------------------------
@@ -84,8 +88,11 @@ def combRegress():
         plt.ylim(0, 100)
         plt.ylim(0, 100)
 
-    print("---- complete ----")
+    print("\n---- complete ----\n")
+    print("type 'showme()' to display triple plot\n")
     #list of bins to return
-    pprint.pprint(combBreaks)
+    #pprint.pprint(combBreaks)
     return(combBreaks)
+
+def showme():
     plt.show()

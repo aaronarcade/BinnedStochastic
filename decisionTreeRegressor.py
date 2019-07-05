@@ -4,6 +4,10 @@ from sklearn.tree import DecisionTreeRegressor
 import sklearn.tree
 import matplotlib.pyplot as plt
 
+#-------------------------------------------------------------------------------
+# this file will save 20 png files of regressions on randomly generated datasets
+#-------------------------------------------------------------------------------
+
 for n in range(1, 21):
     # #create data
     points = wd.writeData()
