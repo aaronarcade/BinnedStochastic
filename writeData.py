@@ -32,7 +32,7 @@ def writeData():
         #set floor of next partition
         opart = opart+1+part
         rem = 100-part-opart-1
-    print(bins)
+    #print(bins)***************************
 
     #append x,y to list to return
     for i in range(0,len(bins)):
