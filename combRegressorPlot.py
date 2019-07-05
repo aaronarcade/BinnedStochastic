@@ -76,7 +76,6 @@ def combRegress():
         plt.subplot(312)
         plt.scatter(lis[i][0], lis[i][1], s=10, color=colors[i-1], label="data "+str(i))
         plt.plot(tes[i][0], tes[i][1], color=colors[i-1], label="tree "+str(i), linewidth=2)
-
         plt.ylim(0, 100)
         plt.ylabel("target")
         plt.ylim(0, 100)
@@ -90,9 +89,10 @@ def combRegress():
 
     print("\n---- complete ----\n")
     print("type 'showme()' to display triple plot\n")
-    #list of bins to return
     #pprint.pprint(combBreaks)
     return(combBreaks)
 
+
+#will display plots
 def showme():
     plt.show()
