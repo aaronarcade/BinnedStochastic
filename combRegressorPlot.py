@@ -8,10 +8,10 @@ import pprint
 #-------------------------------------------------------------------------------
 # set up function
 #-------------------------------------------------------------------------------
-def combRegress():
+def combRegress(n):
     lis, tes, combBreaks = [], [], []
 
-    for n in range(1, 11):
+    for n in range(1, n+1):
         #create data
         points = wd.writeData()
 
@@ -46,9 +46,9 @@ def combRegress():
         start = 0
         for i in range(0,len(points)):
             if int(ys[i+1])!=int(ys[i]):
-                breaks.append((int(start), int(X_test[i]), ys[i]))
+                breaks.append([int(start), int(X_test[i]), ys[i]])
                 start = X_test[i]
-        breaks.append((int(start), int(X_test[i]), ys[i]))
+        breaks.append([int(start), int(X_test[i]), ys[i]])
 
         # print(bins, breaks) #yvals, (start, stop, yval)
 
@@ -62,27 +62,30 @@ def combRegress():
     # plot unfit, fitted, and fit regressions
     #---------------------------------------------------------------------------
 
-    # colors = ["blue","green","red","cyan","magenta","brown","darkorange","grey", "pink", "purple"]
-    # for i in range(0,len(lis)):
-    #     #unfit points in scatterplot
-    #     plt.subplot(311)
-    #     plt.scatter(lis[i][0], lis[i][1], s=10, color=colors[i-1], label="data "+str(i+1))
-    #     plt.ylim(0, 100)
-    #     plt.title("Prefit, Combined, and Fit Regression")
-    #     plt.legend()
+    colors = ["blue","green","red","cyan","magenta","brown","darkorange","grey", "pink", "purple"]
+    for i in range(0,len(lis)):
+        #unfit points in scatterplot
+        plt.subplot(411)
+        plt.scatter(lis[i][0], lis[i][1], s=10, color=colors[i-1], label="data "+str(i+1))
+        plt.ylim(0, 100)
+        plt.title("Prefit, Combined, and Fit Regression")
+        plt.xlim(0, 100)
 
-    #     #scatterplot and fit decision tree model
-    #     plt.subplot(312)
-    #     plt.scatter(lis[i][0], lis[i][1], s=10, color=colors[i-1], label="data "+str(i))
-    #     plt.plot(tes[i][0], tes[i][1], color=colors[i-1], label="tree "+str(i), linewidth=2)
-    #     plt.ylim(0, 100)
-    #     plt.ylabel("target")
+        #scatterplot and fit decision tree model
+        plt.subplot(412)
+        plt.scatter(lis[i][0], lis[i][1], s=10, color=colors[i-1], label="data "+str(i))
+        plt.plot(tes[i][0], tes[i][1], color=colors[i-1], label="tree "+str(i), linewidth=2)
+        plt.ylim(0, 100)
+        plt.ylabel("target")
+        plt.xlim(0, 100)
 
-    #     #only fit decision tree model
-    #     plt.subplot(313)
-    #     plt.plot(tes[i][0], tes[i][1], color=colors[i-1], label="tree "+str(i), linewidth=2)
-    #     plt.xlabel("data")
-    #     plt.ylim(0, 100)
+        #only fit decision tree model
+        plt.subplot(413)
+        plt.plot(tes[i][0], tes[i][1], color=colors[i-1], label="tree "+str(i), linewidth=2)
+        plt.xlabel("data")
+        plt.ylim(0, 100)
+        plt.xlim(0, 100)
+        plt.legend()
 
     print("\n---- complete ----\n")
     #print("type 'showme()' to display triple plot if in python env\n")
@@ -91,5 +94,5 @@ def combRegress():
 
 
 # #will display plots
-# def showme():
-#     plt.show()
+def showme():
+     plt.show()

@@ -34,7 +34,7 @@ for n in range(1, 21):
     start = 0
     for i in range(0,len(points)):
         if int(ys[i+1])!=int(ys[i]):
-            breaks.append((int(start), int(X_test[i]), ys[i]))
+            breaks.append((int(start), int(X_test[i]), ys[i])
             start = X_test[i]
     breaks.append((int(start), int(X_test[i]), ys[i]))
 

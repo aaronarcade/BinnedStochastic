@@ -24,6 +24,7 @@ X_test = np.arange(0.0, max(X), .99999)[:, np.newaxis]
 regr_1 = DecisionTreeRegressor(max_depth=5, min_impurity_split=3)
 regr_1.fit(X, y)
 y_1 = regr_1.predict(X_test)
+plt.scatter(X, yval, s=10, color=colors[i-1], label="data "+str(i))
 plt.plot(X_test, y_1, color=colors[i-1], label="fit "+str(i-1), linewidth=2)
 
 
